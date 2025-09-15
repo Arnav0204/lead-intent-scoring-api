@@ -34,7 +34,7 @@ CREATE TABLE scores(
     created_at TIMESTAMP DEFAULT NOW(),
     CONSTRAINT pk_scores_score_id PRIMARY KEY (score_id),
     CONSTRAINT fk_scores_offer_id FOREIGN KEY (offer_id)
-        REFERENCES offers(offer_id) ON DELETE CASCADE
+        REFERENCES offers(offer_id) ON DELETE CASCADE,
     CONSTRAINT fk_scores_lead_id FOREIGN KEY (lead_id)
         REFERENCES leads(lead_id) ON DELETE CASCADE
 );
