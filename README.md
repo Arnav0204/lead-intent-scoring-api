@@ -53,8 +53,6 @@ A Flask-based API for scoring and ranking B2B leads using rule-based algorithms 
    ```env
    DATABASE_URL=postgresql://username:password@localhost:5432/database_name
    GOOGLE_API_KEY=your_gemini_api_key_here
-   FLASK_ENV=development
-   FLASK_DEBUG=True
    ```
 
 5. **Install dependencies**
