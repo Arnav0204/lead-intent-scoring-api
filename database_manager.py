@@ -75,6 +75,36 @@ class DatabaseManager:
             self.create_schema()
         logging.info("database schema ready")
 
+    def execute_query(self,query:str,params:tuple=None,fetch:bool=False):
+        conn = None
+        cursor = None
+        result = None
+        try:
+            conn=psycopg2.connect(self.database_url)
+            cursor=conn.cursor()
+
+            cursor.execute(query,params)
+
+            if fetch:
+                result = cursor.fetchall()
+            
+            conn.commit()
+            
+            if result:
+                return result
+            
+            return None
+
+        except Exception as e:
+            if conn:
+                conn.rollback()
+            raise e
+        finally:
+            if cursor:
+                cursor.close()
+            if conn:
+                conn.close()
+
 
 
     
